@@ -12,11 +12,14 @@ $( document ).ready(function() {
 					farr[j+1] = p
 					animationCoords[animationIndex] = [j, j+1, 'replacement']
 				}else{
-                    animationCoords[animationIndex] = [j, j+1, 'other']
+                    animationCoords[animationIndex] = [j, j+1, 'comparison']
                 }
                 animationIndex++;
 			}
+            animationCoords[animationIndex] = [j, j, 'lastItem'];
+            animationIndex++;
 		}
+        animationCoords[animationIndex] = [0, 0, 'lastItem'];
 		animation(0)
 	});
 });
@@ -26,6 +29,13 @@ function setIds(){
 	$('.bubble').each(function(index){
 		farr[index] = $(this).html();
 		var margin = index * 40;
-		$(this).css('margin-left',margin + 'px').attr('id', 'bubble' + index)
+		$(this).css('margin-left',margin + 'px').attr('id', 'bubble' + index);
 	});
+}
+
+function resetBubbls(){
+    $('.bubble').each(function(index){
+        var margin = index * 40;
+        $(this).css('margin-left',margin + 'px').attr('id', 'bubble' + index).html(farr[index]);
+    });
 }
