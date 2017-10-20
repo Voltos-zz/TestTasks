@@ -1,5 +1,5 @@
-.bubbleParent{
-	display: block;
+.bubbleControls{
+	margin-top:120px;
 }
 .bubble{
 	padding: 5px 10px;
@@ -11,9 +11,6 @@
     width: 32px;
     height: 32px;
 }
-#sort{
-	position: absolute;
-    margin-left: 360px;
-    margin-top: 40px;
-    height: 32px;
+.hide{
+	display:none;
 }

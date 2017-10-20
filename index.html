@@ -10,22 +10,24 @@
 		<script src="bubbleSort.js"></script>
 		<script src="animation.js"></script>
 		<script src="src/scripts/angularJsApp.js"></script>
+		<script src="src/scripts/controllers/setValueController.js"></script>
 		<link href="style.css" rel="stylesheet">
 	</head>
-	<body>
-        <div class="container">
-            <div class="bubbleParent" data-ng-app="bubbleSort">
-                <span class="bubble btn btn-info">3</span>
-                <span class="bubble btn btn-info">6</span>
-                <span class="bubble btn btn-info">9</span>
-                <span class="bubble btn btn-info">7</span>
-                <span class="bubble btn btn-info">2</span>
-                <span class="bubble btn btn-info">8</span>
-                <span class="bubble btn btn-info">1</span>
-                <span class="bubble btn btn-info">5</span>
-                <span class="bubble btn btn-info">4</span>
-            </div>
-            <button id="sort" class="btn btn-default">Sort!</button>
+	<body data-ng-app="bubbleSort">
+        <div class="container data-ng-controller="valueController">
+			<span class="bubble btn btn-info" ng-repeat="n in numbers track by $index" style="margin-left: {{$index * 40}}px;">
+				{{n}}
+			</span>
+			<div class="form-group form-inline bubbleControls">
+				<input id="bubbleInput" type="text" class="form-control" data-ng-model="numbers" data-ng-change="toValues(numbers)" placeholder="Input numbers">
+				<button id="sort" class="btn btn-default">Sort!</button>
+				<button id="clear" class="btn btn-default hide">Clear!</button>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-warning" data-fill=0 style="width: 0%"></div>
+				<div class="progress-bar progress-bar-danger" data-fill=0 style="width: 0%"></div>
+			</div>
         </div>
+		
 	</body>
 </html>
